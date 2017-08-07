@@ -1,0 +1,20 @@
+{
+  "name": "pxgamer/github-deploy-key",
+  "description": "A CLI to generate and add Github SSH deploy keys to repos.",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "pxgamer\\GithubDeployKey\\": "src/"
+    }
+  },
+  "require": {
+    "guzzlehttp/guzzle": "~6.0",
+    "symfony/console": "~3.0",
+    "symfony/filesystem": "~3.0",
+    "symfony/process": "~3.0"
+  },
+  "bin": [
+    "bin/gdk"
+  ]
+}
