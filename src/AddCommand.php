@@ -11,11 +11,27 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
+/**
+ * Class AddCommand
+ * @package pxgamer\GithubDeployKey
+ */
 class AddCommand extends Command
 {
+    /**
+     * @var array|null
+     */
     private $providedRepositories;
+    /**
+     * @var array|null
+     */
     private $validRepositories;
+    /**
+     * @var array|null
+     */
     private $invalidRepositories;
+    /**
+     * @var string|null
+     */
     private $token;
     /**
      * @var Client
@@ -33,7 +49,7 @@ class AddCommand extends Command
             ->setName('add')
             ->setDescription('Add a new deploy key.')
             ->addArgument('repositories', InputArgument::REQUIRED | InputArgument::IS_ARRAY)
-            ->addOption('token', 't', InputOption::VALUE_OPTIONAL, 'A Github personal access token (PAT).');
+            ->addOption('token', 't', InputOption::VALUE_REQUIRED, 'A Github personal access token (PAT).');
     }
 
     /**
@@ -54,7 +70,7 @@ class AddCommand extends Command
         $this->createClient();
 
         $output->writeln([
-            '<comment>Deploy keys added successfully to the following repositories:</comment>',
+            '<comment>Generating deploy keys:</comment>',
             '<comment>-------------------------------------------------------------</comment>',
             ''
         ]);
@@ -72,6 +88,13 @@ class AddCommand extends Command
         }
     }
 
+    /**
+     * Generates the SSH deploy key pair defaults to RSA@4096b with no password
+     *
+     * @todo https://github.com/pxgamer/github-deploy-key/issues/4
+     * @param string $repo
+     * @return array
+     */
     private function generateKeyPair($repo)
     {
         $type = 'rsa';
@@ -103,6 +126,13 @@ class AddCommand extends Command
         ];
     }
 
+    /**
+     * Add the deploy key to the Github repository
+     *
+     * @param string $repository
+     * @param array $keyPair
+     * @return bool
+     */
     private function addKey($repository, $keyPair)
     {
         $response = $this->client->post(
@@ -123,6 +153,9 @@ class AddCommand extends Command
         return false;
     }
 
+    /**
+     * Create an instance of the Guzzle HTTP Client for calls to Github
+     */
     private function createClient()
     {
         $this->client = new Client([
@@ -135,6 +168,11 @@ class AddCommand extends Command
         ]);
     }
 
+    /**
+     * Validate the supplied Personal Access Token
+     *
+     * @return bool
+     */
     private function validateToken()
     {
         if (!$this->token) {
@@ -148,6 +186,11 @@ class AddCommand extends Command
         return false;
     }
 
+    /**
+     * Validate the provided repository names
+     *
+     * @return bool
+     */
     private function validateRepos()
     {
         if (!$this->providedRepositories) {
@@ -172,6 +215,12 @@ class AddCommand extends Command
         return false;
     }
 
+    /**
+     * Throw an ErrorException with a supplied message
+     *
+     * @param string $message
+     * @throws \ErrorException
+     */
     private function error($message)
     {
         throw new \ErrorException($message);
