@@ -33,7 +33,7 @@ class AddCommand extends Command
             ->setName('add')
             ->setDescription('Add a new deploy key.')
             ->addArgument('repositories', InputArgument::REQUIRED | InputArgument::IS_ARRAY)
-            ->addOption('token', 't', InputOption::VALUE_OPTIONAL, 'A Github personal access token (PAT).');
+            ->addOption('token', 't', InputOption::VALUE_REQUIRED, 'A Github personal access token (PAT).');
     }
 
     /**
