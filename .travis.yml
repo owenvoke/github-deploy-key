@@ -3,6 +3,5 @@ before_script:
   - composer install --no-interaction
 php:
   - '7.1'
-  - hhvm
   - nightly
 script: phpunit
