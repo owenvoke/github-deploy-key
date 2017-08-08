@@ -70,7 +70,7 @@ class AddCommand extends Command
         $this->createClient();
 
         $output->writeln([
-            '<comment>Deploy keys added successfully to the following repositories:</comment>',
+            '<comment>Generating deploy keys:</comment>',
             '<comment>-------------------------------------------------------------</comment>',
             ''
         ]);
