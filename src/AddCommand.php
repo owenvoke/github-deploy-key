@@ -13,7 +13,6 @@ use Symfony\Component\Process\Process;
 
 /**
  * Class AddCommand
- * @package pxgamer\GithubDeployKey
  */
 class AddCommand extends Command
 {
@@ -49,15 +48,21 @@ class AddCommand extends Command
             ->setName('add')
             ->setDescription('Add a new deploy key.')
             ->addArgument('repositories', InputArgument::REQUIRED | InputArgument::IS_ARRAY)
-            ->addOption('token', 't', InputOption::VALUE_REQUIRED, 'A Github personal access token (PAT).');
+            ->addOption(
+                'token',
+                't',
+                InputOption::VALUE_REQUIRED,
+                'A Github personal access token (PAT).'
+            );
     }
 
     /**
      * Execute the command.
      *
-     * @param  \Symfony\Component\Console\Input\InputInterface $input
+     * @param  \Symfony\Component\Console\Input\InputInterface   $input
      * @param  \Symfony\Component\Console\Output\OutputInterface $output
      * @return void
+     * @throws \ErrorException
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -72,7 +77,7 @@ class AddCommand extends Command
         $output->writeln([
             '<comment>Generating deploy keys:</comment>',
             '<comment>-------------------------------------------------------------</comment>',
-            ''
+            '',
         ]);
 
         foreach ($this->validRepositories as $repository) {
@@ -108,7 +113,12 @@ class AddCommand extends Command
 
         $filename = $dir . '/' . 'id_' . $type;
 
-        $command = 'ssh-keygen -t ' . $type . ' -b ' . $bits . ' -f ' . $filename . ' -N "' . $pass_phrase . '" -C "' . $comment . '" -q';
+        $command = 'ssh-keygen' .
+                   ' -t ' . $type .
+                   ' -b ' . $bits .
+                   ' -f ' . $filename .
+                   ' -N "' . $pass_phrase . '"' .
+                   ' -C "' . $comment . '" -q';
 
         $process = new Process($command);
         $process->run();
@@ -118,10 +128,10 @@ class AddCommand extends Command
         }
 
         return [
-            'type' => $type,
-            'bits' => $bits,
+            'type'    => $type,
+            'bits'    => $bits,
             'comment' => $comment,
-            'public' => file_get_contents($filename . '.pub'),
+            'public'  => file_get_contents($filename . '.pub'),
             'private' => file_get_contents($filename),
         ];
     }
@@ -130,7 +140,7 @@ class AddCommand extends Command
      * Add the deploy key to the Github repository
      *
      * @param string $repository
-     * @param array $keyPair
+     * @param array  $keyPair
      * @return bool
      */
     private function addKey($repository, $keyPair)
@@ -139,10 +149,10 @@ class AddCommand extends Command
             '/repos/' . $repository . '/keys',
             [
                 'json' => [
-                    'title' => $keyPair['comment'],
-                    'key' => $keyPair['public'],
-                    'read_only' => true
-                ]
+                    'title'     => $keyPair['comment'],
+                    'key'       => $keyPair['public'],
+                    'read_only' => true,
+                ],
             ]
         );
 
@@ -160,11 +170,11 @@ class AddCommand extends Command
     {
         $this->client = new Client([
             'base_uri' => 'https://api.github.com',
-            'headers' => [
-                'User-Agent' => 'github-deploy-key-php',
-                'Accept' => 'application/vnd.github.v3+json',
-                'Authorization' => 'token ' . $this->token
-            ]
+            'headers'  => [
+                'User-Agent'    => 'github-deploy-key-php',
+                'Accept'        => 'application/vnd.github.v3+json',
+                'Authorization' => 'token ' . $this->token,
+            ],
         ]);
     }
 
@@ -172,6 +182,7 @@ class AddCommand extends Command
      * Validate the supplied Personal Access Token
      *
      * @return bool
+     * @throws \ErrorException
      */
     private function validateToken()
     {
@@ -190,6 +201,7 @@ class AddCommand extends Command
      * Validate the provided repository names
      *
      * @return bool
+     * @throws \ErrorException
      */
     private function validateRepos()
     {
