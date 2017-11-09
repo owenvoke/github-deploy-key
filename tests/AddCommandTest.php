@@ -1,7 +1,8 @@
 <?php
 
+namespace pxgamer\GithubDeployKey;
+
 use PHPUnit\Framework\TestCase;
-use pxgamer\GithubDeployKey\AddCommand;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 
