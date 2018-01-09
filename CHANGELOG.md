@@ -4,6 +4,16 @@ All notable changes to `github-deploy-key` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## v1.1.2 - 2017-12-06
+
+### Fixed
+- Corrected legal name in license
+
+## v1.1.1 - 2017-11-20
+
+### Fixed
+- Corrected the format of the license file
+
 ## v1.1.0 - 2017-11-09
 
 ### Added
