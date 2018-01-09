@@ -1,0 +1,18 @@
+{
+    "chmod": "0755",
+    "main": "bin/gdk",
+    "output": "bin/gdk.phar",
+    "directories": [
+        "src"
+    ],
+    "finder": [
+        {
+            "name": "*.php",
+            "exclude": [
+                "tests"
+            ],
+            "in": "vendor"
+        }
+    ],
+    "stub": true
+}
