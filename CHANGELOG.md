@@ -4,6 +4,11 @@ All notable changes to `github-deploy-key` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## v1.1.3 - 2018-01-09
+
+### Added
+- Added Box support
+
 ## v1.1.2 - 2017-12-06
 
 ### Fixed
