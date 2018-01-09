@@ -16,6 +16,9 @@ use Symfony\Component\Process\Process;
  */
 class AddCommand extends Command
 {
+    public const TOKEN_LENGTH = 40;
+    public const HTTP_CREATED = 201;
+
     /**
      * @var array|null
      */
@@ -156,7 +159,7 @@ class AddCommand extends Command
             ]
         );
 
-        if ($response->getStatusCode() === 201) {
+        if ($response->getStatusCode() === self::HTTP_CREATED) {
             return true;
         }
 
@@ -190,7 +193,7 @@ class AddCommand extends Command
             $this->error('Please provide a Github token [--token rando]');
         }
 
-        if (strlen($this->token) < 40) {
+        if (strlen($this->token) < self::TOKEN_LENGTH) {
             $this->error('Please provide a valid Github token.');
         }
 
