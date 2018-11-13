@@ -1,18 +1,8 @@
 {
-    "chmod": "0755",
-    "main": "bin/gdk",
-    "output": "bin/gdk.phar",
-    "directories": [
-        "src"
-    ],
-    "finder": [
-        {
-            "name": "*.php",
-            "exclude": [
-                "tests"
-            ],
-            "in": "vendor"
-        }
-    ],
-    "stub": true
+    "git-tag": "git-version",
+    "compression": "GZ",
+    "compactors": [
+        "KevinGH\\Box\\Compactor\\Php",
+        "KevinGH\\Box\\Compactor\\PhpScoper"
+    ]
 }
