@@ -22,44 +22,44 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 ## [v1.1.3] - 2018-01-09
 
 ### Added
-- Added Box support
+- Add Box support
 
 ## [v1.1.2] - 2017-12-06
 
 ### Fixed
-- Corrected legal name in license
+- Fix the legal name in license
 
 ## [v1.1.1] - 2017-11-20
 
 ### Fixed
-- Corrected the format of the license file
+- Fix the format of the license file
 
 ## [v1.1.0] - 2017-11-09
 
 ### Added
-- New format for the README
-- Added more testing data
-- Added community files
-- Updated to require PHP ^7.1
+- Update the format for the README
+- Add more testing data
+- Add community files
+- Update to require PHP ^7.1
 
 ## [v1.0.2] - 2017-08-08
 
 ### Added
-- Added TravisCI YML
-- Created the first test
-- Added a PhpUnit config
+- Add TravisCI YML
+- Create the first test
+- Add a PhpUnit config
 
 ### Removed
-- Removed HHVM support
-- Removed support for less than PHP 7.1
+- Remove HHVM support
+- Remove support for less than PHP 7.1
 
 ## [v1.0.1] - 2017-08-08
 
 ### Added
-- Added multiple PhpDocs for the AddCommand class
-- Changed `--token` to be a REQUIRED value
-- Removed symfony/filesystem requirement as it's not being used.
-- Updated README to include example and usage
+- Add multiple PhpDocs for the AddCommand class
+- Change `--token` to be a REQUIRED value
+- Remove symfony/filesystem requirement as it's not being used.
+- Update README to include example and usage
 
 ## v1.0.0 - 2017-08-08
 
