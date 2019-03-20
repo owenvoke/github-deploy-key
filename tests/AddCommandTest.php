@@ -1,25 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace pxgamer\GithubDeployKey;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 
-/**
- * Class AddCommandTest
- */
 class AddCommandTest extends TestCase
 {
-    /**
-     * The test repository name
-     */
+    /** @var string */
     const TEST_REPO = 'pxgamer/deploy-key-test-repo';
 
-    /**
-     * Test for whether the repo key can be added
-     */
-    public function testAddRepoKey()
+    /** @test*/
+    public function itCanSuccessfullyAddARepositoryKey(): void
     {
         $application = new Application();
         $application->add(new AddCommand());
