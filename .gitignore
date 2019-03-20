@@ -1,4 +1,6 @@
-build
-composer.lock
-vendor
-bin/gdk.phar
+/bin/gdk.phar
+/build
+/vendor
+/composer.lock
+/phpcs.xml
+/phpunit.xml
