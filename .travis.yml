@@ -35,4 +35,4 @@ deploy:
     on:
         repo: pxgamer/github-deploy-key
         tags: true
-        php: '7.1'
+        php: '7.2'
