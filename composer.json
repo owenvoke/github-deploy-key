@@ -7,7 +7,7 @@
         "bin/gdk"
     ],
     "require": {
-        "php": "^7.1",
+        "php": "^7.2",
         "guzzlehttp/guzzle": "^6.3",
         "symfony/console": "^4.0",
         "symfony/process": "^4.0"
