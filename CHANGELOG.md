@@ -6,6 +6,14 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 
 ## [Unreleased]
 
+## [v1.2.0] - 2019-03-20
+
+### Added
+- Add support for PHPUnit 8 ([#9](https://github.com/pxgamer/github-deploy-key/pull/9))
+
+### Changed
+- Update the directory structure ([#10](https://github.com/pxgamer/github-deploy-key/pull/10))
+
 ## [v1.1.4] - 2018-11-13
 
 ### Changed
@@ -59,6 +67,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com) princip
 - Initial full command flow
 
 [Unreleased]: https://github.com/pxgamer/github-deploy-key/compare/master...develop
+[v1.2.0]: https://github.com/pxgamer/github-deploy-key/compare/v1.1.4...v1.2.0
 [v1.1.4]: https://github.com/pxgamer/github-deploy-key/compare/v1.1.3...v1.1.4
 [v1.1.3]: https://github.com/pxgamer/github-deploy-key/compare/v1.1.2...v1.1.3
 [v1.1.2]: https://github.com/pxgamer/github-deploy-key/compare/v1.1.1...v1.1.2
