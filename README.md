@@ -9,20 +9,11 @@
 
 A CLI to generate and add Github SSH deploy keys to repos.
 
-## Structure
-
-```
-bin/
-src/
-tests/
-vendor/
-```
-
 ## Install
 
 Via Composer
 
-``` bash
+```bash
 $ composer require pxgamer/github-deploy-key
 ```
 
@@ -55,7 +46,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Testing
 
-``` bash
+```bash
 $ composer test
 ```
 
@@ -65,7 +56,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT
 
 ## Security
 
-If you discover any security related issues, please email owzie123@gmail.com instead of using the issue tracker.
+If you discover any security related issues, please email security@pxgamer.xyz instead of using the issue tracker.
 
 ## Credits
 
