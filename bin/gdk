@@ -1,11 +1,19 @@
 #!/usr/bin/env php
 <?php
+
+$version = '@git-version@';
+
 if (file_exists(__DIR__ . '/../../../autoload.php')) {
     require __DIR__ . '/../../../autoload.php';
 } else {
     require __DIR__ . '/../vendor/autoload.php';
 }
-$app = new Symfony\Component\Console\Application('Github Deploy Key', '1.1.3');
+
+$app = new Symfony\Component\Console\Application(
+    'Github Deploy Key',
+    $version === '@'.'git-version@' ? 'source' : $version
+);
+
 try {
     $app->add(new \pxgamer\GithubDeployKey\AddCommand());
     $app->run();
