@@ -9,6 +9,8 @@
 
 A CLI to generate and add Github SSH deploy keys to repos.
 
+> **Note**: Use the [`gh repo deploy-key`](https://cli.github.com/manual/gh_repo_deploy-key) command instead.
+
 ## Install
 
 Via Composer
